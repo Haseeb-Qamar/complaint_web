@@ -1,0 +1,65 @@
+:root{
+  --theme-blue: #3E65A0;
+  --theme-blue-dark: #2B4E84;
+  --theme-white: #FFFFFF;
+}
+body{
+
+}
+.labels{
+  display: block;
+  font-size: 12px;
+}
+.inputfields{
+  background-color: var(--theme-blue);
+  padding: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: inline-block;
+  margin-top: 5%;
+  color: white;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.inputfields input[type=text]{
+  margin-bottom: 10px;
+  outline: none;
+  border-radius: .5em;
+  border: none;
+  padding: 1%;
+}
+.form-inline input[type=text]{
+  outline: none;
+  border-radius: .5em;
+  border: none;
+  padding-left: 5px;
+}
+a{
+  color: white;
+}
+/* For dashboard */
+
+.fields{
+  background-color: var(--theme-blue);
+padding: 1%;
+padding-left: 5%;
+padding-right: 5%;
+margin-top: 5%;
+color: white;
+}
+#submitbtn{
+  margin-top: 1%;
+}
+.fieldLables{
+  margin-right: 5%;
+}
+/*  For Mobile */
+
+@media screen and ( max-width: 500px ){
+body{
+
+}
+#bar{
+  display: none;
+}
+}
