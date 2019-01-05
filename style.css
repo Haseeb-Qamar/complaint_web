@@ -33,20 +33,34 @@ a{
   color: white;
 }
 /* For dashboard */
+.complainbox{
 
+}
 .fields{
-  background-color: var(--theme-blue);
+background-color: var(--theme-blue);
 padding: 1%;
+width: 60%;
 padding-left: 5%;
 padding-right: 5%;
-margin-top: 5%;
+
 color: white;
+border-top-right-radius: 1em;
+border-bottom-left-radius: 1em;
+margin: 0 auto;
+margin-top: 5%;
 }
 #submitbtn{
   margin-top: 1%;
 }
 .fieldLables{
   margin-right: 5%;
+}
+.avatar_small{
+  position: absolute;
+  width: 40%;
+  top: 0px;
+  left: 100px;
+
 }
 /* For Verify Page */
 .avatars{
@@ -80,6 +94,39 @@ color: white;
   width: 100%;
   padding: 1%
 }
+/* For Pending  */
+.complains{
+  background-color: var(--theme-blue);
+  padding: 1%;
+  width: 60%;
+  padding-left: 5%;
+  padding-right: 5%;
+  color: white;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+  margin: 0 auto;
+  margin-top: 5%;
+  /* border: 5px solid yellow; */
+}
+table {
+  border-collapse: separate;
+  border-spacing: 15px 10px;
+  /* border: 3px solid red; */
+  margin: 0 auto;
+}
+th{
+  color: white;
+}
+td{
+  color: white;
+  padding-bottom: 2%;
+  padding-right: 10px;
+  /* border: 1px solid green; */
+}
+.contentclass{
+
+}
+
 /*  For Mobile */
 
 @media screen and ( max-width: 500px ){
@@ -88,5 +135,14 @@ body{
 }
 #bar{
   display: none;
+}
+.avatar_small{
+  display: none;
+}
+.fields{
+width: 100%;
+}
+.submitbtn{
+
 }
 }

@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include("conn.php");
   if (!isset($_SESSION['id'])) {
   header("Location:index.php");
 } ?>
@@ -23,10 +24,10 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">File Complain</a>
-        </li>
         <li class="nav-item">
+          <a class="nav-link" href="dashboard.php">File Complain</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" href="user_pending.php">Complain Status</a>
         </li>
         <li class="nav-item dropdown">
@@ -50,33 +51,30 @@
     <div class="col-sm-12">
 
       <div class="complainbox">
-        <div class="fields">
-          <form class="" action="script_user_complaint.php" method="get">
+        <div class="complains">
+          <?php
 
-            Concerned Department:<br>
-            <div class="fieldholder">
+          $sql = "SELECT * FROM pending WHERE user = '".$_SESSION['id']."'";
+          $result = $conn->query($sql);
+          echo "<table>
+          <th>Dept</th>
+          <th>Content</th>
+          <th>Date</th>
+          <th>Status</th>
+          ";
+          if ($result == TRUE) {
+            while ($row = $result->fetch_assoc()) {
+              $preview = substr($row['content'],0,45);
+              echo "<tr>
+              <td>".$row['dept']."</td>
+              <td class='contentclass'>".$preview."</td>
+              <td>".$row['dept']."</td>
+              <td>".$row['status']."</td>
+              </tr>";
 
-              <input type="radio" name="dept" value="Accounts">
-              <span class="fieldLables">Accounts</span>
-
-            </div>
-            <div class="">
-              <input type="radio" name="dept" value="Registarar">
-              <span class="fieldLables">Registarar</span>
-            </div>
-            <div class="">
-              <input type="radio" name="dept" value="Faculty">
-              <span class="fieldLables">Faculty</span>
-            </div>
-            <div class="">
-              <input type="radio" name="dept" value="Disciplinary">
-              <span class="fieldLables">Disciplinary</span>
-            </div>
-
-            <span class="labels">Reason</span>
-            <textarea name="content" rows="4" cols="30"></textarea><br>
-            <input id="submitbtn" type="submit" class="btn btn-success btn-sm" name="" value="Submit">
-          </form>
+            }
+          }
+           ?>
         </div>
       </div>
 
