@@ -1,4 +1,12 @@
-<?php include "conn.php"; session_start();if(isset($_GET['code'])){$code=$_GET['code'];}else $code=0  ?>
+<?php include "conn.php";
+  session_start();
+  if (!isset($_SESSION['id'])) {
+  header("Location:index.php");
+}
+  if(isset($_GET['code'])){
+    $code=$_GET['code'];
+  }else $code=0
+?>
 <html>
   <head>
     <title></title>
@@ -16,6 +24,9 @@
     <div class="col-sm-12 text-center">
 
       <div class="passwordfield">
+        <div id="mesg" class="alert alert-danger" style="display:none">
+
+        </div>
 <form class="" action="script_user_verification.php" method="post">
 
   <span style="font-size:22px;">Welcome <?php echo $_SESSION['name'] ?> </span><br>
@@ -41,6 +52,7 @@
     function setLayout(){
       if (code == 1) {
         var msg = document.getElementById('mesg');
+        msg.style.display= "block";
         msg.innerHTML = "Invalid Password";
         msg.classList.add('text-danger');
 

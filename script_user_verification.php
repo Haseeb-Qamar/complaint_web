@@ -7,6 +7,7 @@ if (isset($_POST['pwd'])) {
   $result = $conn->query($sql);
   if ($result == TRUE) {
     if ($result->num_rows == 1) {
+      $_SESSION['verified'] = 1;
       header("Location:dashboard.php");
     }else {
       header("Location:verify.php?code=1");

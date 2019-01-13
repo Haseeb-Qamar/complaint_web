@@ -1,6 +1,7 @@
 <?php
   session_start();
-  if (!isset($_SESSION['id']) || !isset($_SESSION['verified'])) {
+  include("conn.php");
+  if (!isset($_SESSION['id'])) {
   header("Location:index.php");
 } ?>
 <html>
@@ -20,11 +21,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="community.php">Community Complaints <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">File Complain</a>
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.php">File Complain</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="user_pending.php">Complain Status</a>
@@ -50,36 +51,33 @@
     <div class="col-sm-12">
 
       <div class="complainbox">
-        <div class="fields">
-          <form class="" action="script_user_complaint.php" method="get">
+        <div class="complains">
+          <?php
 
-            Concerned Department:<br>
-            <div class="fieldholder">
+          $sql = "SELECT * FROM pending";
+          $result = $conn->query($sql);
+          echo "<table>
+          <th>User</th>
+          <th>Dept</th>
+          <th>Content</th>
+          <th>Date</th>
 
-              <input type="radio" name="dept" value="Accounts">
-              <span class="fieldLables">Accounts</span>
+          ";
+          if ($result == TRUE) {
+            while ($row = $result->fetch_assoc()) {
+              $user_ = $row['user'];
+              $preview = substr($row['content'],0,45);
+              echo "<tr>
+              <td><img class='avatar_lists' src='assets/small/$user_.jpg' >"."</td>
+              <td>".$row['dept']."</td>
+              <td class='contentclass'>".$preview."</td>
+              <td>".$row['dept']."</td>
 
-            </div>
-            <div class="">
-              <input type="radio" name="dept" value="Registarar">
-              <span class="fieldLables">Registarar</span>
-            </div>
-            <div class="">
-              <input type="radio" name="dept" value="Faculty">
-              <span class="fieldLables">Faculty</span>
-            </div>
-            <div class="">
-              <input type="radio" name="dept" value="Disciplinary">
-              <span class="fieldLables">Disciplinary</span>
-            </div>
+              </tr>";
 
-            <span class="labels">Reason</span>
-            <div class="inputReason">
-              <textarea name="content" onkeyup="counter(this.value)" rows="4" cols="30"></textarea>
-              <span class="counter" id="count"></span>
-            </div>
-            <input id="submitbtn" type="submit" class="btn btn-success btn-sm" name="" value="Submit">
-          </form>
+            }
+          }
+           ?>
         </div>
       </div>
 
@@ -89,7 +87,6 @@
 </div>
   </body>
   <script type="text/javascript">
-  var length = document.getElementById('count');
     window.onload = function(){
       setLayout();
     };
@@ -99,10 +96,6 @@
         labels[i].classList.add("text-left");
       }
 
-    }
-    function counter(x){
-      console.log(x.length);
-      length.innerHTML=x.length;
     }
   </script>
       <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>

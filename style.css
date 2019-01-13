@@ -3,14 +3,31 @@
   --theme-blue-dark: #2B4E84;
   --theme-white: #FFFFFF;
 }
-body{
-
+body, html{
+ height: 90%;
+}
+.wrapper{
+  position: relative;
+  height: 100%;
+  border: 1px solid green;
+}
+.container{
+  min-height: 100%;
+}
+.footer{
+  position: absolute;
+  bottom: 0px;
+  font-size: 10px;
+  margin: 0 auto;
+  text-align: center;
 }
 .labels{
   display: block;
   font-size: 12px;
 }
 .inputfields{
+  position: relative;
+  box-shadow: 4px 4px 24px 1px rgba(0,0,0,0.75);
   background-color: var(--theme-blue);
   padding: 1%;
   padding-left: 5%;
@@ -36,7 +53,19 @@ a{
 .complainbox{
 
 }
+.inputReason{
+  position: relative;
+  /* border: 5px dotted green; */
+}
+.counter{
+
+
+  right: 0px;
+  top: 5px;
+
+}
 .fields{
+box-shadow: 4px 4px 24px 1px rgba(0,0,0,0.75);
 background-color: var(--theme-blue);
 padding: 1%;
 width: 60%;
@@ -57,6 +86,8 @@ margin-top: 5%;
 }
 .avatar_small{
   position: absolute;
+  border-top-right-radius: .4em;
+  border-bottom-left-radius: .4em;
   width: 40%;
   top: 0px;
   left: 100px;
@@ -75,8 +106,10 @@ margin-top: 5%;
 .mydiv{
   margin: 0 auto;
   width: 80%;
+
 }
 .passwordfield{
+  box-shadow: 4px 4px 24px 1px rgba(0,0,0,0.75);
   background-color: var(--theme-blue);
   width: 320px;
   padding: 1%;
@@ -96,11 +129,12 @@ margin-top: 5%;
 }
 /* For Pending  */
 .complains{
+  box-shadow: 4px 4px 24px 1px rgba(0,0,0,0.75);
   background-color: var(--theme-blue);
   padding: 1%;
-  width: 60%;
-  padding-left: 5%;
-  padding-right: 5%;
+  width: 100%;
+  /* padding-left: 5%;
+  padding-right: 5%; */
   color: white;
   border-top-right-radius: 1em;
   border-bottom-left-radius: 1em;
@@ -121,12 +155,19 @@ td{
   color: white;
   padding-bottom: 2%;
   padding-right: 10px;
-  /* border: 1px solid green; */
+  /* border: 5px solid green; */
 }
 .contentclass{
 
 }
+/* For community */
+.avatar_lists{
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+  /* border: 5px solid red; */
 
+
+}
 /*  For Mobile */
 
 @media screen and ( max-width: 500px ){
@@ -144,5 +185,22 @@ width: 100%;
 }
 .submitbtn{
 
+}
+.complains{
+width: 100%;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0px 0px;
+  margin: 0 auto;
+}
+td{
+  /* font-size: 8px; */
+  /* background-color: pink; */
+   padding-right: 0px;
+
+}
+.avatar_lists{
+  width: 75%;
 }
 }

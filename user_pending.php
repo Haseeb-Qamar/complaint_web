@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="community.php">Community Complaints <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.php">File Complain</a>
@@ -40,7 +40,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a> -->
           </div>
-          <img class="avatar_small rounded-circle" src="assets/avatars/<?php echo $_SESSION['id'] ?>.jpg" alt="">
+          <img class="avatar_small" src="assets/avatars/<?php echo $_SESSION['id'] ?>.jpg" alt="">
         </li>
       </ul>
 
