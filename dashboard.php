@@ -51,6 +51,8 @@
 
       <div class="complainbox">
         <div class="fields">
+          <!-- <img id="dash_display" src="assets/avatars/<?php echo $_SESSION['id'] ?>.jpg" alt=""> -->
+
           <form class="" action="script_user_complaint.php" method="get">
 
             Concerned Department:<br>
@@ -75,8 +77,8 @@
 
             <span class="labels">Reason</span>
             <div class="inputReason">
-              <textarea name="content" onkeyup="counter(this.value)" rows="4" cols="30"></textarea>
-              <span class="counter" id="count"></span>
+              <textarea name="content" maxlength="200" onkeyup="counter(this.value)" rows="4" cols="30"></textarea>
+              <span class="counter" id="count">0/200</span>
             </div>
             <input id="submitbtn" type="submit" class="btn btn-success btn-sm" name="" value="Submit">
           </form>
@@ -102,7 +104,7 @@
     }
     function counter(x){
       console.log(x.length);
-      length.innerHTML=x.length;
+      length.innerHTML=x.length + "/200";
     }
   </script>
       <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>

@@ -50,8 +50,8 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <div class="complainbox">
-        <div class="complains">
+      <div class="complainbox text-center">
+        <div class="complains_c">
           <?php
 
           $sql = "SELECT * FROM pending";
@@ -71,7 +71,7 @@
               <td><img class='avatar_lists' src='assets/small/$user_.jpg' >"."</td>
               <td>".$row['dept']."</td>
               <td class='contentclass'>".$preview."</td>
-              <td>".$row['dept']."</td>
+              <td>".$row['pdate']."</td>
 
               </tr>";
 

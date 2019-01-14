@@ -1,9 +1,13 @@
 <?php
   session_start();
   include("conn.php");
+  if (isset($_GET['code'])) {
+    $code = $_GET['code'];
+  }else $code = 0;
   if (!isset($_SESSION['id'])) {
   header("Location:index.php");
-} ?>
+}
+?>
 <html>
   <head>
     <title></title>
@@ -50,8 +54,11 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <div class="complainbox">
+      <div class="complainbox text-center">
         <div class="complains">
+          <div id="alert" class="alert alert-danger" style="display: none;">
+
+          </div>
           <?php
 
           $sql = "SELECT * FROM pending WHERE user = '".$_SESSION['id']."'";
@@ -68,7 +75,7 @@
               echo "<tr>
               <td>".$row['dept']."</td>
               <td class='contentclass'>".$preview."</td>
-              <td>".$row['dept']."</td>
+              <td>".$row['pdate']."</td>
               <td>".$row['status']."</td>
               </tr>";
 
@@ -84,10 +91,17 @@
 </div>
   </body>
   <script type="text/javascript">
+  var msg = document.getElementById('alert');
+  var code = <?php echo $code ?>;
     window.onload = function(){
       setLayout();
     };
     function setLayout(){
+      if (code == 2) {
+        msg.innerHTML = "You cannot have more than 3 pending requests!";
+        msg.style.display = "block";
+        msg.classList.add('text-center');
+      }
       var labels = document.getElementsByClassName('labels');
       for (var i = 0; i < labels.length; i++) {
         labels[i].classList.add("text-left");
