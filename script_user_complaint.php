@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Asia/Karachi');
 include("conn.php");
 session_start();
 if (isset($_GET['dept']) && isset($_GET['content'])) {
@@ -12,8 +12,9 @@ if (isset($_GET['dept']) && isset($_GET['content'])) {
       echo $received -> num_rows;
       header("Location:user_pending.php?code=2");
     } else {
-      $date = date('Y-m-d H:i:s');
-      $sql = "INSERT INTO pending (user, dept, content, pdate) VALUES('".$_SESSION['id']."','$dept', '$content', '$date')";
+      $date = date('Y-m-d h:i:s');
+        $time = date('h:i:s a');
+      $sql = "INSERT INTO pending (user, dept, content, pdate, ptime) VALUES('".$_SESSION['id']."','$dept', '$content', '$date','$time')";
       $result = $conn->query($sql);
       if ($result == TRUE) {
         header("Location:user_pending.php");

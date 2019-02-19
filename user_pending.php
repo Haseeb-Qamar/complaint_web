@@ -14,6 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
     <style></style>
   </head>
   <body>
@@ -60,14 +63,19 @@
 
           </div>
           <?php
-
           $sql = "SELECT * FROM pending WHERE user = '".$_SESSION['id']."'";
           $result = $conn->query($sql);
-          echo "<table>
+               if($result->num_rows == 0){
+                   echo "<p class='alert alert-info'>No Pending Requests<br>Your pending complains will be shown here.</p>";
+               }
+          else  {
+              echo "<table>
           <th>Dept</th>
           <th>Content</th>
           <th>Date</th>
+          <th>Time</th>
           <th>Status</th>
+          <th>Action</th>
           ";
           if ($result == TRUE) {
             while ($row = $result->fetch_assoc()) {
@@ -76,10 +84,13 @@
               <td>".$row['dept']."</td>
               <td class='contentclass'>".$preview."</td>
               <td>".$row['pdate']."</td>
+              <td>".$row['ptime']."</td>
               <td>".$row['status']."</td>
+              <td> <a href='script_delete.php?id=".$row['c_id']."'><img src='assets/cancel.png'></a></td>
               </tr>";
 
             }
+          }
           }
            ?>
         </div>

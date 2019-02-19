@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
     <style></style>
   </head>
   <body>
@@ -56,6 +59,9 @@
 
           $sql = "SELECT * FROM pending";
           $result = $conn->query($sql);
+               if($result->num_rows == 0){
+                   echo "<p class='alert alert-info'>No Complaints Yet<br>Community complains will be shown here.</p>";
+               }else{
           echo "<table>
           <th>User</th>
           <th>Dept</th>
@@ -76,7 +82,9 @@
               </tr>";
 
             }
-          }
+          }            
+               }
+       
            ?>
         </div>
       </div>
