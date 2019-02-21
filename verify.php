@@ -33,7 +33,7 @@
   <img class="avatars" src="assets/avatars/<?php echo $_SESSION['id']; ?>.jpg" alt="">
   <div class="mydiv">
     <span class="labels text-left">Password</span>
-    <input type="password" name="pwd" value="" required><br>
+    <input type="password" id="field" name="pwd" value="" required><br>
   </div>
   <input type="submit" class="btn btn-success btn-sm" name="" value="Submit">
 </form>
@@ -47,6 +47,7 @@
   <script type="text/javascript">
   var code = <?php echo $code?>;
     window.onload = function(){
+      document.getElementById('field').focus();
       setLayout();
     };
     function setLayout(){
@@ -63,5 +64,5 @@
     console.log('pressed');
     }
   </script>
-  </div>
+  
 </html>

@@ -12,6 +12,10 @@ font-family: bobcayge;
 src: url('assets/fonts/bobcaygr.ttf');
 }
 body, html{
+    background-image: url(assets/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   font-family: nunito;
  height: 90%;
 }
@@ -173,8 +177,10 @@ th{
 }
 td{
   color: white;
+/*
   padding-bottom: 2%;
   padding-right: 10px;
+*/
   /* border: 5px solid green; */
 }
 .contentclass{
@@ -194,7 +200,13 @@ td{
   border-bottom-left-radius: 1em;
   margin: 0 auto;
   margin-top: 5%;
+  width: 100%;
+    overflow: auto;
+  max-height: 90%;
   /* border: 5px solid yellow; */
+}
+table{
+    width: 100%;
 }
 
 .avatar_lists{
@@ -205,7 +217,11 @@ td{
 
 }
 /*  For Mobile */
-
+@media screen and ( max-width: 991px ){
+.avatar_small{
+  display: none;
+}    
+}
 @media screen and ( max-width: 500px ){
 body{
 

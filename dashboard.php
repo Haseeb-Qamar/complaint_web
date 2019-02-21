@@ -58,26 +58,26 @@
             Concerned Department:<br>
             <div class="fieldholder">
 
-              <input type="radio" name="dept" value="Accounts">
+              <input type="radio" name="dept" value="Accounts" required>
               <span class="fieldLables">Accounts</span>
 
             </div>
             <div class="">
-              <input type="radio" name="dept" value="Registarar">
+              <input type="radio" name="dept" value="Registarar" required>
               <span class="fieldLables">Registarar</span>
             </div>
             <div class="">
-              <input type="radio" name="dept" value="Faculty">
+              <input type="radio" name="dept" value="Faculty" required>
               <span class="fieldLables">Faculty</span>
             </div>
             <div class="">
-              <input type="radio" name="dept" value="Disciplinary">
+              <input type="radio" name="dept" value="Disciplinary" required>
               <span class="fieldLables">Disciplinary</span>
             </div>
 
             <span class="labels">Reason</span>
             <div class="inputReason">
-              <textarea name="content" maxlength="200" onkeyup="counter(this.value)" rows="4" cols="30"></textarea>
+              <textarea name="content" maxlength="200" required onkeyup="counter(this.value)" rows="4" cols="30"></textarea>
               <span class="counter" id="count">0/200</span>
             </div>
             <input id="submitbtn" type="submit" class="btn btn-success btn-sm" name="" value="Submit">

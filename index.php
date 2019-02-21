@@ -29,7 +29,7 @@ if(isset($_GET['code'])){
 
   <span style="font-size:22px;">Login</span><br>
   <span class="labels text-left">User ID</span>
-  <input type="text" name="user_id" value="" maxlength="11" onkeyup="input(this.value)" autocomplete="off" required><br>
+  <input type="text" id="field" name="user_id" value="" maxlength="11" onkeyup="input(this.value)" autocomplete="off" required><br>
   <input type="submit" class="btn btn-success btn-sm" name="" value="Submit">
 </form>
       </div>
@@ -42,6 +42,7 @@ if(isset($_GET['code'])){
     <p class="footer" id="footer">System is being deployed. Errors are expected.</p>
 
 </div>
+ 
   </body>
   <script type="text/javascript">
     var code = <?php echo $code?>;
@@ -52,6 +53,7 @@ if(isset($_GET['code'])){
     setInterval(function(){checkheight()},10);
     window.onload = function(){
       height = screen.height;
+      document.getElementById('field').focus();
       setLayout();
     };
     function setLayout(){
@@ -81,5 +83,4 @@ if(isset($_GET['code'])){
       }
     }
   </script>
-  </div>
 </html>

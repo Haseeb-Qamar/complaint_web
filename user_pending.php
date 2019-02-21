@@ -86,7 +86,7 @@
               <td>".$row['pdate']."</td>
               <td>".$row['ptime']."</td>
               <td>".$row['status']."</td>
-              <td> <a href='script_delete.php?id=".$row['c_id']."'><img src='assets/cancel.png'></a></td>
+              <td><button onclick='deleteid(this.value)' value='".$row['c_id']."' style='background-color:transparent;border:none;outline:none'> <img src='assets/cancel.png'  ></button></td>
               </tr>";
 
             }
@@ -119,9 +119,20 @@
       }
 
     }
+      function deleteid(id){
+          
+          var confirm1 = confirm("Are you sure you want to cancel request?");
+          console.log(id);
+          if   (confirm1 == true){
+                window.location = "script_delete.php?id=" + id;
+              console.log("Clicked YES");
+                }else{
+                    console.log("Clicked NO");
+                }
+      }
   </script>
       <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  </div>
+  
 </html>

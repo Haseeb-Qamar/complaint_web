@@ -1,13 +1,16 @@
 <?php
 date_default_timezone_set('Asia/Karachi');
 include("conn.php");
+
 session_start();
 if (isset($_GET['dept']) && isset($_GET['content'])) {
+    
   $dept = $_GET['dept'];
   $content = $_GET['content'];
   $get= "SELECT user FROM pending WHERE user=".$_SESSION['id']."";
   $received = $conn->query($get);
   if ($received == TRUE) {
+      
     if ($received -> num_rows > 2) {
       echo $received -> num_rows;
       header("Location:user_pending.php?code=2");
@@ -24,7 +27,7 @@ if (isset($_GET['dept']) && isset($_GET['content'])) {
         echo "ERROR: " .$conn->error;
       }
     }
-  }
-}
+  }else echo $conn->error;
+}else header("Location:dashboard.php?code=1");
 
  ?>

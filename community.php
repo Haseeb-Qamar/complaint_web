@@ -57,7 +57,7 @@
         <div class="complains_c">
           <?php
 
-          $sql = "SELECT * FROM pending";
+          $sql = "SELECT * FROM complains";
           $result = $conn->query($sql);
                if($result->num_rows == 0){
                    echo "<p class='alert alert-info'>No Complaints Yet<br>Community complains will be shown here.</p>";
@@ -67,6 +67,7 @@
           <th>Dept</th>
           <th>Content</th>
           <th>Date</th>
+          <th>Time</th>
 
           ";
           if ($result == TRUE) {
@@ -78,7 +79,7 @@
               <td>".$row['dept']."</td>
               <td class='contentclass'>".$preview."</td>
               <td>".$row['pdate']."</td>
-
+              <td>".$row['ptime']."</td>
               </tr>";
 
             }

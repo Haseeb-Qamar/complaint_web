@@ -8,7 +8,7 @@ if (isset($_POST['pwd'])) {
   if ($result == TRUE) {
     if ($result->num_rows == 1) {
       $_SESSION['verified'] = 1;
-      header("Location:dashboard.php");
+      header("Location:Dashboard");
     }else {
       header("Location:verify.php?code=1");
     }
