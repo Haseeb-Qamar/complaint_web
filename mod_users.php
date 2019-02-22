@@ -32,8 +32,10 @@
         
     </div>
     <div class="container-fluid">
+       
         <div class="displaybox">
-            <?php 
+         
+               <?php 
             include("conn.php");
             $sql = "SELECT * FROM users";
             $result = $conn->query($sql);
@@ -44,21 +46,59 @@
           <th>User</th>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>Action</th>
           ";
             if ($result == TRUE) {
             while ($row = $result->fetch_assoc()) {
+                $userid = $row['user_id'];
+              
               echo "<tr>
               <td>".$row['user_id']."</td>
-              <td ><span class='users'>".$row['firstname']."<span class='userimg'><img src='assets/small/".$row['user_id'].".jpg'></span></span></td>
-              <td>".$row['lastname']."</td>
+              
+              <td ><span class='users'>".$row['firstname'];
+              
+              if(file_exists("assets/small/$userid.jpg")){
+                  echo "<span class='userimg'><img src='assets/small/".$row['user_id'].".jpg'></span></span></td>";
+              } else {
+              echo "<span class='userimg'><img src='assets/small/default.jpg'></span></span></td>";    
+              }
+              
+              
+              
+              echo "<td>".$row['lastname']."</td>
+              <td><button onclick='deleteid(this.value)' value='".$row['user_id']."' style='background-color:transparent;border:none;outline:none'> <img src='assets/cancel.png'  ></button></td>
               </tr>";
 
             }
-          }
+          echo "</table>";
+            }
                       
             }
       
             ?>
+        
+        </div>
+        <div class="addbtn">
+            <button onclick="displaydialog()" class="btn btn-success btn-sm">Add User</button>
+        </div>
+        <div id="myd" class="addDialog">
+           <form action="script_mod_adduser.php" method="post">
+            <div class="dialog">
+               <div class="text-center">Add User Details</div>
+                <span class="labels">User ID</span> <br>
+                <input type="text" maxlength="11" name="uid" id=""><br>
+                <span class="labels">First Name</span> <br>
+                <input type="text" name="fn" id=""><br>
+                <span class="labels">Last Name</span><br>
+                <input type="text" name="ln" id=""><br>
+                <span class="labels">Password</span> <br>
+                <input type="text" name="pwd" id=""><br>
+                <input class="btn btn-default btn-sm" type="submit" value="Add User">
+            <span onclick="closebox()" id="close" class="closebox">&times;</span>
+            </div>    
+           </form>
+           
+            
         </div>
     </div>
     <script type="text/javascript">
@@ -69,7 +109,26 @@
         else if(url == 'users'){window.location = "mod_users.php";}
         else if(url == 'complains'){window.location = "mod_complains.php";}
     }
-    
+    function displaydialog(){
+        var mydialog = document.getElementById('myd');
+        mydialog.style.display = "block";
+    }
+    function closebox(){
+        var mydialog = document.getElementById('myd');
+        mydialog.style.display= "none";
+    }
+         function deleteid(id){
+          
+          var confirm1 = confirm("Are you sure you want to delete this user?");
+          console.log(id);
+          if   (confirm1 == true){
+                window.location = "script_mod_delete_user.php?id=" + id;
+              console.log("Clicked YES");
+                }else{
+                    console.log("Clicked NO");
+                }
+      }
+        
     </script>
 </body>
 </html>

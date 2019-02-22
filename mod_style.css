@@ -1,6 +1,9 @@
 :root{
     --theme-blue: #3E65A0;
 }
+body{
+    background-color: var(--theme-blue);
+}
 .header{
     background-color: var(--theme-blue);
 /*    padding-top: 5%;*/
@@ -14,6 +17,7 @@
     
 }
 .displaybox{
+    position: relative;
     padding: 1%;
     background-color: var(--theme-blue);
     color: white;
@@ -57,4 +61,80 @@ th{
 }
 .jumbotron{
     color: black;
+}
+.addbtn{
+    padding-top: 0.5%;
+    position: relative;
+    float: right;
+    
+}
+.addDialog{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    border: 1px dotted red;
+    background-color: rgba(0,0,0,.5);
+}
+.dialog{
+    padding: 1%;
+    width: 25%;
+    background: var(--theme-blue);
+    color: white;
+    position: relative;
+    display: inline-block;
+    margin-left: 40%;
+    margin-top: 18%;
+    
+    border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.dialog input[type=text]{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 1em;
+    padding-left: 5%;
+}
+input[type=submit]{
+    display: block;
+    margin: 0 auto;
+    margin-top: 2%;
+    
+    
+}
+.closebox{
+    position: absolute;
+    top: 0px;
+    right:5%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 28px;
+}
+.labels{
+    font-size: 12px;
+}
+.loginfields{
+      
+  
+    
+    display: inline-block;
+    text-align: left;
+    padding: 2%;
+    font-size: 12px;
+    background-color: var(--theme-blue);
+}
+.loginfields input[type=text],.loginfields input[type=password] {
+    border: 2px solid white;
+    outline: none;
+    padding-left: 1%;
+    border-radius: 1em;
+    height: 30px;
+    background-color: rgba(255,255,255,0);
+    color: white;
+}
+#submitbtn{
+    margin-top: 5%;
 }
